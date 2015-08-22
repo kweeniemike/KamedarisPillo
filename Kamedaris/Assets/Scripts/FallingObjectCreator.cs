@@ -10,12 +10,14 @@ public class FallingObjectCreator : MonoBehaviour {
 	public int maxXPosition;
 	public int minYPosition ;
 	public int maxYPosition;
+	private float startTime;
+	private float currentTime;
+	public float spawnTime;
+	private float lastSpawnTime;
 
 	// Use this for initialization
 	void Start () {
-		CreateKokosnoot(new Vector3(0,5,0));
-		CreateMelon(new Vector3(3,5,0));
-		CreateMelon(new Vector3(-3,6,0));
+		startTime = Time.timeSinceLevelLoad;
 	}
 	
 	// Update is called once per frame
@@ -28,6 +30,19 @@ public class FallingObjectCreator : MonoBehaviour {
 		{
 			CreateKokosnoot(CreateRandomVector());
 		}
+		currentTime = Time.time - startTime;
+		if(currentTime >= lastSpawnTime + spawnTime)
+		{
+			int r = Random.Range(0,2);
+			if(r == 1)
+			{
+				CreateMelon(CreateRandomVector());
+			}
+			else{
+				CreateKokosnoot(CreateRandomVector());
+			}
+			lastSpawnTime = currentTime;
+		}
 	}
 	Vector3 CreateRandomVector()
 	{
@@ -39,18 +54,20 @@ public class FallingObjectCreator : MonoBehaviour {
 
 	void CreateKokosnoot(Vector3 position)
 	{
-		GameObject t = CreateFallingObject(KokosnootPrefab, position);
+		GameObject g = CreateFallingObject(KokosnootPrefab, position);
 		melonCounter++;
-		t.name = "Kokosnoot"+melonCounter;
-		t.transform.parent = this.transform;
+		g.name = "Kokosnoot"+melonCounter;
+		g.transform.parent = this.transform;
+		g.transform.Rotate(0,90,90);
 	}
 
 	void CreateMelon(Vector3 position)
 	{
-		GameObject t = CreateFallingObject(MeloenPrefab, position);
+		GameObject g = CreateFallingObject(MeloenPrefab, position);
 		kokosnootCounter++;
-		t.name = "Meloen"+kokosnootCounter;
-		t.transform.parent = this.transform;
+		g.name = "Meloen"+kokosnootCounter;
+		g.transform.parent = this.transform;
+		g.transform.Rotate(0,90,90);	
 	}
 
 	GameObject CreateFallingObject(GameObject fallingObject, Vector3 position)
