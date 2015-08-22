@@ -10,8 +10,8 @@ public class Cart : MonoBehaviour
 	;
 	public cartColor color;
 	public Score score;
-	public FallingObjectCreator objectcounter;
-	public List<GameObject> uniqueObjects;
+	private FallingObjectCreator objectcounter;
+	private List<GameObject> uniqueObjects;
 
 	void OnTriggerEnter (Collider collider)
 	{
