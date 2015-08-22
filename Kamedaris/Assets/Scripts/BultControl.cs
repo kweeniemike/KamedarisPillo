@@ -95,13 +95,41 @@ public class BultControl : MonoBehaviour {
 		if (Mathf.Abs(newMoveValue - currentMoveValue) > 0.01f && !moving) {
 
 			currentMoveValue = newMoveValue;
-			StartCoroutine(MoveUpDown(currentMoveValue, bult01));
+			//StartCoroutine(MoveUpDown(currentMoveValue, bult01));
+			moving = true;
+
 		}
 		if (Mathf.Abs(newMoveValue2 - currentMoveValue2) > 0.01f && !moving2) {
 
 			currentMoveValue2 = newMoveValue2;
-			StartCoroutine(MoveUpDown2(currentMoveValue2, bult02));
+			//StartCoroutine(MoveUpDown2(currentMoveValue2, bult02));
+			moving2 = true;
 		}
+
+		if (moving) {
+			Vector3 v3ToMove = new Vector3 (bult01.transform.position.x, currentMoveValue, bult01.transform.position.z);
+			Vector3 v3CurrentMove = bult01.transform.position;
+			if(Vector3.Distance(v3ToMove, v3CurrentMove) > 0.005f) {
+				bult01.GetComponent<Rigidbody> ().MovePosition (v3ToMove);
+			}
+			else
+			{
+				moving = false;
+			}
+		}
+
+		if (moving2) {
+			Vector3 v3ToMove2 = new Vector3 (bult02.transform.position.x, currentMoveValue2, bult02.transform.position.z);
+			Vector3 v3CurrentMove2 = bult02.transform.position;
+			if(Vector3.Distance(v3ToMove2, v3CurrentMove2) > 0.005f) {
+				bult02.GetComponent<Rigidbody> ().MovePosition (v3ToMove2);
+			}
+			else
+			{
+				moving2 = false;
+			}
+		}
+		
 		//*/
 
 
