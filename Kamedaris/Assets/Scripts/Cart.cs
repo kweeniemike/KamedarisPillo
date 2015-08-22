@@ -10,9 +10,11 @@ public class Cart : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		Debug.Log("Dead");
 		GameObject opponent = collision.collider.gameObject;
 		if(opponent.tag ==  "Meloen" && color == cartColor.red)
 		{
+			Debug.Log("Melon Dead");
 			if(opponent.name.StartsWith("Gouden"))
 			{
 				score.addSpecialScore();
@@ -22,6 +24,7 @@ public class Cart : MonoBehaviour {
 				score.addScore();
 			}
 			objectcounter.goldMelonCounter++;
+			Destroy(opponent.transform.parent.gameObject);
 		}
 		else if(opponent.tag == "Kokosnoot" && color == cartColor.blue)
 		{
@@ -34,17 +37,20 @@ public class Cart : MonoBehaviour {
 				score.addScore();
 			}
 			objectcounter.goldKokosnootCounter++;
+			Destroy(opponent.transform.gameObject);
 		}
 		else if(opponent.tag == "Kokosnoot" && color == cartColor.red)
 		{
 			score.negativeScore();
 			objectcounter.goldMelonCounter=0;
+			Destroy(opponent.transform.gameObject);
 		}
 		else if(opponent.tag == "Meloen" && color == cartColor.blue)
 		{
+			Debug.Log("Melon Dead");
 			score.negativeScore();
 			objectcounter.goldKokosnootCounter=0;
+			Destroy(opponent.transform.parent.gameObject);
 		}
-		Destroy(opponent);
 	}
 }

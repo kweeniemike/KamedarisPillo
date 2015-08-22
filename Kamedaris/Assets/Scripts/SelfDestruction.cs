@@ -7,6 +7,12 @@ public class SelfDestruction : MonoBehaviour {
 	void OnBecameInvisible() {
 		if(transform.position.y<minimalYPosition)
 		{
+			Debug.Log("Dead");
+			if(tag == "Meloen") 
+			{
+				Debug.Log("Melon Dead");
+				Destroy(transform.parent.gameObject);
+			}
 			Destroy(gameObject);
 		}
 	}
