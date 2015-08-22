@@ -49,10 +49,7 @@ public class Score : MonoBehaviour {
 		ScoreSaver.Scores newStuff = new ScoreSaver.Scores("You have not a lot scores yet!",-1);
 		ScoreSaver.scorings = ScoreSaver.ListNames(newStuff);//set the properly
 		//ScoreSaver.SetList ();
-
-		addScore();
-		addScore();
-		addSpecialScore();
+		
 	}
 
 	public void negativeScore(){
