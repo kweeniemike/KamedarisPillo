@@ -41,12 +41,12 @@ public class WelcomeScreen : MonoBehaviour {
 			Application.LoadLevel("MainScene");
 		}
 
-		if(GUI.Button(new Rect (Screen.width * 0.38f,Screen.height * 0.43f, Screen.width * 0.17f, Screen.height * 0.17f),"", creditBtn )){
+		if(GUI.Button(new Rect (Screen.width * 0.38f,Screen.height * 0.43f, Screen.width * 0.17f, Screen.height * 0.17f),"", descrBtn )){
 			description = !description;
 			credits = false;
 		}
 
-		if(GUI.Button(new Rect (Screen.width * 0.38f,Screen.height * 0.61f, Screen.width * 0.17f, Screen.height * 0.17f),"", descrBtn )){
+		if(GUI.Button(new Rect (Screen.width * 0.38f,Screen.height * 0.61f, Screen.width * 0.17f, Screen.height * 0.17f),"", creditBtn )){
 			credits = !credits;
 			description = false;
 		}
