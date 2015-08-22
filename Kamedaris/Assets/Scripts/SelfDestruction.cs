@@ -4,9 +4,8 @@ using System.Collections;
 public class SelfDestruction : MonoBehaviour {
 	public float minimalYPosition;
 	public float disappearTime;
-	public float endTime;
-	public float neededEndTime;
-	public bool start;
+	private float endTime;
+	private bool start;
 	void Awake()
 	{
 		start = false;
@@ -26,7 +25,6 @@ public class SelfDestruction : MonoBehaviour {
 	{
 		if(start)
 		{
-			neededEndTime = Time.timeSinceLevelLoad;
 			if(Time.timeSinceLevelLoad >= endTime)
 			{
 				if(tag == "Meloen") 

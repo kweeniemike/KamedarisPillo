@@ -25,6 +25,7 @@ public class Score : MonoBehaviour {
 
 	GUIStyle styleNormal = new GUIStyle();
 	GUIStyle styleMiddle = new GUIStyle();
+	GUIStyle styleOwnScore= new GUIStyle();
 
 	private bool showScores = false;
 
@@ -32,6 +33,8 @@ public class Score : MonoBehaviour {
 	private int minutes;
 	private int seconds;
 	private int fraction;
+
+	private float highScore = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +51,13 @@ public class Score : MonoBehaviour {
 		styleMiddle.normal.textColor = Color.red;
 		styleMiddle.hover.textColor	 = Color.red;
 		styleMiddle.alignment = TextAnchor.MiddleRight;
+
+		styleOwnScore.fontSize = 30;
+		styleOwnScore.alignment = TextAnchor.MiddleLeft;
+		styleOwnScore.margin = new RectOffset (0, 0, 0, 2);
+		styleOwnScore.normal.textColor = Color.green;
+		styleOwnScore.hover.textColor = Color.green;
+
 
 		ScoreSaver.Scores newStuff = new ScoreSaver.Scores("You have not a lot scores yet!",-1);
 		ScoreSaver.scorings = ScoreSaver.ListNames(newStuff);//set the properly
@@ -80,6 +90,7 @@ public class Score : MonoBehaviour {
 
 	
 		if (timeToDeath <= 0 && !showScores) {
+			highScore = score;
 			ScoreSaver.Scores save = new ScoreSaver.Scores(Sys.DateTime.UtcNow.ToString(),score);
 			ScoreSaver.scorings = ScoreSaver.ListNames(save);
 			showScores = true;
@@ -127,7 +138,19 @@ public class Score : MonoBehaviour {
 			{
 				//if(nam.Length > 1){
 					//GUILayout.Box(nam);
-				GUILayout.Box(nam,styleNormal);
+				//Debug.Log(highScore);
+				//Debug.Log(nam);
+				if(nam != null)
+				{
+					if(((string)nam).Equals(highScore.ToString()))
+					{
+						GUILayout.Box(nam,styleOwnScore);
+					}
+					else
+					{
+						GUILayout.Box(nam,styleNormal);
+					}
+				}
 				//}
 			}
 			GUILayout.EndVertical();
