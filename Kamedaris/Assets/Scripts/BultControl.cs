@@ -49,6 +49,10 @@ public class BultControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (!PilloController.pilloReady) {
+			return;
+		}
+		Debug.Log ("1" + moving + "-2" + moving2);
 		/*
 		if (playerInputScript.pilloPressure1 > 0.005f) {
 			newExValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (exMax - exMin)*1.5f, exMin, exMax);
