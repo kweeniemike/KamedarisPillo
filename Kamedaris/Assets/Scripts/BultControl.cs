@@ -32,11 +32,11 @@ public class BultControl : MonoBehaviour {
 
 	//private Vector3 v3ToRot = Vector3.zero;
 	//private Vector3 v3CurrentRot;
-	//private float speedRot = 5f;
+	private float speedRot = 5f;
 
 	//private Vector3 v3ToEx = Vector3.zero;
 	//private Vector3 v3CurrentEx;
-	//private float speedEx = 5f;
+	private float speedEx = 5f;
 	private float speedMove = 0f;
 
 	// Use this for initialization
@@ -111,7 +111,8 @@ public class BultControl : MonoBehaviour {
 	IEnumerator Rotate(float rotation, GameObject bult)
 	{
 		//Debug.Log(Vector3.Distance(v3ToRot, v3CurrentRot));
-		v3ToRot = new Vector3 (bult.transform.rotation.eulerAngles.x, bult.transform.rotation.eulerAngles.y, rotation);
+		Vector3 v3ToRot = new Vector3 (bult.transform.rotation.eulerAngles.x, bult.transform.rotation.eulerAngles.y, rotation);
+		Vector3 v3CurrentRot = bult.transform.rotation.eulerAngles;
 		while(Vector3.Distance(v3ToRot, v3CurrentRot) > 0.05f)
 		{
 			v3CurrentRot = Vector3.Lerp(v3CurrentRot, v3ToRot, Time.deltaTime * speedRot);
