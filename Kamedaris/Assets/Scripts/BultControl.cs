@@ -52,7 +52,7 @@ public class BultControl : MonoBehaviour {
 		if (!PilloController.pilloReady) {
 			return;
 		}
-		Debug.Log ("1" + moving + "-2" + moving2);
+		//Debug.Log ("1" + moving + "-2" + moving2);
 		/*
 		if (playerInputScript.pilloPressure1 > 0.005f) {
 			newExValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (exMax - exMin)*1.5f, exMin, exMax);
@@ -133,7 +133,7 @@ public class BultControl : MonoBehaviour {
 		//*/
 
 
-		Debug.Log ("1" + moving + "-2" + moving2);
+		//Debug.Log ("1" + moving + "-2" + moving2);
 		/*if (newRotValue != currentRotValue && !rotating) {
 			currentRotValue = newRotValue;
 			StartCoroutine(Rotate(currentRotValue, bult01));
