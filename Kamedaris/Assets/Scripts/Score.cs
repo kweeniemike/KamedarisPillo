@@ -43,7 +43,7 @@ public class Score : MonoBehaviour {
 		styleNormal.normal.textColor = Color.yellow;
 		styleNormal.hover.textColor	 = Color.yellow;
 		styleNormal.alignment = TextAnchor.MiddleLeft;
-
+		styleNormal.margin = new RectOffset (0, 0, 0, 2);
 		styleMiddle.fontSize = 70;
 		styleMiddle.normal.textColor = Color.red;
 		styleMiddle.hover.textColor	 = Color.red;
