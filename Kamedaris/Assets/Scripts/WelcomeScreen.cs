@@ -41,10 +41,12 @@ public class WelcomeScreen : MonoBehaviour {
 
 		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.43f, Screen.width * 0.17f, Screen.height * 0.17f),"Game Guide", "button" )){
 			description = !description;
+			credits = false;
 		}
 
 		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.61f, Screen.width * 0.17f, Screen.height * 0.17f),"credits", "button" )){
 			credits = !credits;
+			description = false;
 		}
 
 		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.79f, Screen.width * 0.17f, Screen.height * 0.17f),"", quitBtn )){

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 
 public class Score : MonoBehaviour {
 
-	private float timeToDeath = 60.0f;
+	public float timeToDeath = 60.0f;
 	private float score;
 	public float timeBallPoints = 5f;
+	private float currentTimeBallPoints = 0f;
 	public float timeBallPointsDecay = 0.5f;
 	public float normalBallPoints = 100f;
 	public float specialBallPoints = 500f;
@@ -36,6 +37,8 @@ public class Score : MonoBehaviour {
 	void Start () {
 		score = 0;
 
+		currentTimeBallPoints=timeBallPoints;
+
 		styleNormal.fontSize = 30;
 		styleNormal.normal.textColor = Color.yellow;
 		styleNormal.hover.textColor	 = Color.yellow;
@@ -63,11 +66,11 @@ public class Score : MonoBehaviour {
 		score+=normalBallPoints;
 		//AudioSource src = GetComponent<AudioSource>();
 		//src.clip = ScoreSound[Random.Range(0,ScoreSound.Count)];
-		timeToDeath += timeBallPoints;
+		timeToDeath += currentTimeBallPoints;
 		//src.Play();
 	}
 
-	void Update(){
+	void FixedUpdate(){
 		timeToDeath -= Time.deltaTime;
 		
 		minutes = (int)timeToDeath / 60;
@@ -75,8 +78,8 @@ public class Score : MonoBehaviour {
 		fraction = (int)(timeToDeath * 100) % 60;
 		text = string.Format("{0:0}:{1:00}:{2:00}", minutes, seconds, fraction);
 
-
-		if (timeToDeath < 1 && !showScores) {
+	
+		if (timeToDeath <= 0 && !showScores) {
 			ScoreSaver.Scores save = new ScoreSaver.Scores(Sys.DateTime.UtcNow.ToString(),score);
 			ScoreSaver.scorings = ScoreSaver.ListNames(save);
 			showScores = true;
@@ -84,12 +87,12 @@ public class Score : MonoBehaviour {
 
 		}
 
-		if(Time.timeSinceLevelLoad>=50){
-			timeBallPoints-=timeBallPointsDecay;
-		}else if(Time.timeSinceLevelLoad>=100){
-			timeBallPoints-=timeBallPointsDecay;
-		}else if(Time.timeSinceLevelLoad>=150){
-			timeBallPoints-=timeBallPointsDecay;
+		if(Time.timeSinceLevelLoad>=50&&(currentTimeBallPoints > timeBallPoints-timeBallPointsDecay)){
+			currentTimeBallPoints-=timeBallPointsDecay;
+		}else if(Time.timeSinceLevelLoad>=100&&(currentTimeBallPoints > timeBallPoints-timeBallPointsDecay*2)){
+			currentTimeBallPoints-=timeBallPointsDecay;
+		}else if(Time.timeSinceLevelLoad>=150&&(currentTimeBallPoints > timeBallPoints-timeBallPointsDecay*3)){
+			currentTimeBallPoints-=timeBallPointsDecay;
 		}
 
 	}
@@ -98,7 +101,7 @@ public class Score : MonoBehaviour {
 		score+=specialBallPoints;
 		//AudioSource src = GetComponent<AudioSource>();
 		//src.clip = ScoreSound[Random.Range(0,ScoreSound.Count)];
-		timeToDeath += timeBallPoints;
+		timeToDeath += currentTimeBallPoints;
 		//src.Play();
 	}
 
@@ -133,13 +136,13 @@ public class Score : MonoBehaviour {
 			if(GUI.Button(new Rect (Screen.width * 0.47f, Screen.height * 0.8f, Screen.width * 0.2f, Screen.height * 0.2f),"", quitBtn )){
 				ScoreSaver.SetData();
 				Time.timeScale =1;
-				Application.LoadLevel("Menu");
+				Application.LoadLevel("WelkomScene");
 			}
 
 			if(GUI.Button(new Rect (Screen.width * 0.33f, Screen.height * 0.8f, Screen.width * 0.2f, Screen.height * 0.2f),"", playBtn )){
 				ScoreSaver.SetData();
 				Time.timeScale =1;
-				Application.LoadLevel("testscene");
+				Application.LoadLevel("MainScene");
 			}
 		}
 	}
