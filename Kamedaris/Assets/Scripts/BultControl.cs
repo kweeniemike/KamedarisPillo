@@ -6,21 +6,21 @@ public class BultControl : MonoBehaviour {
 	public GameObject bult01;
 	public GameObject bult02;
 
-	public float newRotValue = 0f;
+	//public float newRotValue = 0f;
 	public Player playerInputScript;
-	public float exMin = 0f;
-	public float exMax = 1.5f;
+	//public float exMin = 0f;
+	//public float exMax = 1.5f;
 	private float moveMin = 0f;
 	private float moveMax = 1.5f;
 
-	private float currentRotValue = 0f;
-	private bool rotating = false;
+	//private float currentRotValue = 0f;
+	//private bool rotating = false;
 
-	public float newExValue = 0f;
-	public float newExValue2 = 0f;
-	private float currentExValue = 0f;
+	//public float newExValue = 0f;
+	//public float newExValue2 = 0f;
+	//private float currentExValue = 0f;
 	//private bool expanding = false;
-	private float currentExValue2 = 0f;
+	//private float currentExValue2 = 0f;
 	//private bool expanding2 = false;
 
 	private float newMoveValue = -1f;
@@ -30,13 +30,13 @@ public class BultControl : MonoBehaviour {
 	private float currentMoveValue2 = -1f;
 	//private bool expanding2 = false;
 
-	private Vector3 v3ToRot = Vector3.zero;
-	private Vector3 v3CurrentRot;
-	private float speedRot = 5f;
+	//private Vector3 v3ToRot = Vector3.zero;
+	//private Vector3 v3CurrentRot;
+	//private float speedRot = 5f;
 
 	//private Vector3 v3ToEx = Vector3.zero;
 	//private Vector3 v3CurrentEx;
-	private float speedEx = 5f;
+	//private float speedEx = 5f;
 	private float speedMove = 0f;
 
 	// Use this for initialization
@@ -75,7 +75,7 @@ public class BultControl : MonoBehaviour {
 		/*/
 
 		//if (playerInputScript.pilloPressure1 > 0.005f) {
-			newMoveValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (moveMax - moveMin), moveMin, moveMax);
+		newMoveValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (moveMax - moveMin), moveMin, moveMax);
 		//} else {
 			//newMoveValue = moveMin;
 		//}
