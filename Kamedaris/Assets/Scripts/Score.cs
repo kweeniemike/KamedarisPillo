@@ -107,8 +107,8 @@ public class Score : MonoBehaviour {
 
 	void OnGUI () {
 		if (!showScores) {
-			GUI.Label (new Rect (0, -5, 250, 160), scoreLabel);
-			GUI.Label (new Rect (Screen.width - 150, -5, 250, 160), timeLabel);
+			GUI.Label (new Rect (-50, -5, 250, 160), scoreLabel);
+			GUI.Label (new Rect (Screen.width - 200, -5, 250, 160), timeLabel);
 
 			GUI.Label (new Rect (40, 60, 100, 50), "" + score, styleNormal);
 			GUI.Label (new Rect (Screen.width - 105, 60, 100, 50), text, styleNormal);

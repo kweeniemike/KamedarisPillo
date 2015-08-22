@@ -18,14 +18,26 @@ public class FallingObjectCreator : MonoBehaviour {
 	private float lastSpawnTime;
 	public int goldMelonCounter;
 	public int goldKokosnootCounter;
+	public float timeReduction;
+	public float timeInterval;
+	public float lowestSpawnTime;
+	public float highestSpawnTime;
+	private float nextReduction;
 
 	// Use this for initialization
 	void Start () {
+		nextReduction = timeInterval;
 		startTime = Time.timeSinceLevelLoad;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		KeyInput();
+		SpawnOnTimer();
+		GoldObjectSpawner();
+	}
+	void KeyInput()
+	{
 		if (Input.GetKeyDown(KeyCode.M))
 		{
 			CreateMelon(CreateRandomVector());
@@ -33,6 +45,16 @@ public class FallingObjectCreator : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.K))
 		{
 			CreateKokosnoot(CreateRandomVector());
+		}
+	}
+
+	void SpawnOnTimer()
+	{
+		if(currentTime >= nextReduction)
+		{
+			spawnTime = spawnTime - timeReduction;
+			spawnTime = Mathf.Clamp(spawnTime, lowestSpawnTime, highestSpawnTime);
+			nextReduction = nextReduction + timeInterval;
 		}
 		currentTime = Time.time - startTime;
 		if(currentTime >= lastSpawnTime + spawnTime)
@@ -47,6 +69,9 @@ public class FallingObjectCreator : MonoBehaviour {
 			}
 			lastSpawnTime = currentTime;
 		}
+	}
+	void GoldObjectSpawner()
+	{
 		if(goldKokosnootCounter >= 5)
 		{
 			CreateGoudenKokosnoot(CreateRandomVector());
@@ -58,6 +83,7 @@ public class FallingObjectCreator : MonoBehaviour {
 			goldMelonCounter=0;
 		}
 	}
+
 	Vector3 CreateRandomVector()
 	{
 		float randomX = Random.Range(minXPosition, maxXPosition);

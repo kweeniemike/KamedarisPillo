@@ -14,4 +14,12 @@ public class SelfDestruction : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
+	void update()
+	{
+		//
+	}
+	public void StartTimer()
+	{
+		//
+	}
 }
