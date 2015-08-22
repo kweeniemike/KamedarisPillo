@@ -162,13 +162,13 @@ public class Score : MonoBehaviour {
 			GUILayout.EndVertical();
 			GUILayout.EndArea();
 
-			if(GUI.Button(new Rect (Screen.width * 0.68f, Screen.height * 0.76f, Screen.width * 0.45f, Screen.height * 0.25f),"", quitBtn )){
+			if(GUI.Button(new Rect (Screen.width * 0.75f, Screen.height * 0.81f, Screen.width * 0.35f, Screen.height * 0.20f),"", quitBtn )){
 				ScoreSaver.SetData();
 				Time.timeScale =1;
 				Application.LoadLevel("WelkomScene");
 			}
 
-			if(GUI.Button(new Rect (Screen.width * -0.12f, Screen.height * 0.76f, Screen.width * 0.45f, Screen.height * 0.25f),"", playBtn )){
+			if(GUI.Button(new Rect (0, Screen.height * 0.8f, Screen.width * 0.35f, Screen.height * 0.20f),"", playBtn )){
 				ScoreSaver.SetData();
 				Time.timeScale =1;
 				Application.LoadLevel("MainScene");
