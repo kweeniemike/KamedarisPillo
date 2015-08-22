@@ -26,9 +26,9 @@ public class BultControl : MonoBehaviour {
 	private float newMoveValue = -1f;
 	private float newMoveValue2 = -1f;
 	private float currentMoveValue = -1f;
-	//private bool expanding = false;
+	private bool moving = false;
 	private float currentMoveValue2 = -1f;
-	//private bool expanding2 = false;
+	private bool moving2 = false;
 
 	//private Vector3 v3ToRot = Vector3.zero;
 	//private Vector3 v3CurrentRot;
@@ -41,6 +41,8 @@ public class BultControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		moving = false;
+		moving2 = false;
 		//v3CurrentRot = bult01.transform.eulerAngles;
 		//v3CurrentEx = bult01.transform.localScale;
 	}
@@ -86,20 +88,20 @@ public class BultControl : MonoBehaviour {
 			//newMoveValue2 = moveMin;
 		//}
 		
-		if (Mathf.Abs(newMoveValue - currentMoveValue) > 0.01f) {
+		if (Mathf.Abs(newMoveValue - currentMoveValue) > 0.01f && !moving) {
 
 			currentMoveValue = newMoveValue;
 			StartCoroutine(MoveUpDown(currentMoveValue, bult01));
 		}
-		if (Mathf.Abs(newMoveValue2 - currentMoveValue2) > 0.01f) {
+		if (Mathf.Abs(newMoveValue2 - currentMoveValue2) > 0.01f && !moving2) {
 
 			currentMoveValue2 = newMoveValue2;
-			StartCoroutine(MoveUpDown(currentMoveValue2, bult02));
+			StartCoroutine(MoveUpDown2(currentMoveValue2, bult02));
 		}
 		//*/
 
 
-		//Debug.Log ("1" + expanding + "-2" + expanding2);
+		Debug.Log ("1" + moving + "-2" + moving2);
 		/*if (newRotValue != currentRotValue && !rotating) {
 			currentRotValue = newRotValue;
 			StartCoroutine(Rotate(currentRotValue, bult01));
@@ -138,13 +140,30 @@ public class BultControl : MonoBehaviour {
 
 	IEnumerator MoveUpDown(float position, GameObject bult)
 	{
+		moving = true;
 		Vector3 v3ToMove = new Vector3 (bult.transform.position.x, position, bult.transform.position.z);
 		Vector3 v3CurrentMove = bult.transform.position;
 		while (Vector3.Distance(v3ToMove, v3CurrentMove) > 0.005f) {
-			bult.GetComponent<Rigidbody> ().MovePosition (v3ToMove); 
+			bult.GetComponent<Rigidbody> ().MovePosition (v3ToMove);
 			yield return new WaitForFixedUpdate();
 		}
+		moving = false;
 
+		//Vector3 moveVector = new Vector3 (bult.transform.position.x, position, bult.transform.position.z);
+		//bult.GetComponent<Rigidbody> ().MovePosition (moveVector);
+	}
+
+	IEnumerator MoveUpDown2(float position, GameObject bult)
+	{
+		moving2 = true;
+		Vector3 v3ToMove = new Vector3 (bult.transform.position.x, position, bult.transform.position.z);
+		Vector3 v3CurrentMove = bult.transform.position;
+		while (Vector3.Distance(v3ToMove, v3CurrentMove) > 0.005f) {
+			bult.GetComponent<Rigidbody> ().MovePosition (v3ToMove);
+			yield return new WaitForFixedUpdate();
+		}
+		moving2 = false;
+		
 		//Vector3 moveVector = new Vector3 (bult.transform.position.x, position, bult.transform.position.z);
 		//bult.GetComponent<Rigidbody> ().MovePosition (moveVector);
 	}
