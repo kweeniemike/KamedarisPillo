@@ -36,7 +36,7 @@ public class WelcomeScreen : MonoBehaviour {
 			
 
 		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.25f, Screen.width * 0.17f, Screen.height * 0.17f),"", playBtn )){
-			//Application.LoadLevel("testscene");
+			Application.LoadLevel("MainScene");
 		}
 
 		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.43f, Screen.width * 0.17f, Screen.height * 0.17f),"Game Guide", "button" )){
