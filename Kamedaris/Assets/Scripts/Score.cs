@@ -15,6 +15,7 @@ public class Score : MonoBehaviour {
 	private float olTime = 0;
 	public List<AudioClip> deathSound;
 	public List<AudioClip> ScoreSound;
+	public FallingObjectCreator fallingObjectCreator;
 
 	public Texture2D timeLabel;
 	public Texture2D scoreLabel;
@@ -81,6 +82,9 @@ public class Score : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		if (fallingObjectCreator.startTimerRunning) {
+			return;
+		}
 		timeToDeath -= Time.deltaTime;
 		
 		minutes = (int)timeToDeath / 60;
