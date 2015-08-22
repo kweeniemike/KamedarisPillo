@@ -50,7 +50,11 @@ public class BultControl : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (!PilloController.pilloReady) {
-			return;
+			newMoveValue = Mathf.Clamp ( Input.GetAxis ("Vertical") * (moveMax - moveMin), moveMin, moveMax);
+			newMoveValue2 = Mathf.Clamp ( Input.GetAxis ("Vertical2") * (moveMax - moveMin), moveMin, moveMax);
+		}else{
+			newMoveValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (moveMax - moveMin), moveMin, moveMax);
+			newMoveValue2 = Mathf.Clamp (playerInputScript.pilloPressure2 * (moveMax - moveMin), moveMin, moveMax);
 		}
 		//Debug.Log ("1" + moving + "-2" + moving2);
 		/*
@@ -81,12 +85,14 @@ public class BultControl : MonoBehaviour {
 		/*/
 
 		//if (playerInputScript.pilloPressure1 > 0.005f) {
-		newMoveValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (moveMax - moveMin), moveMin, moveMax);
+
+
 		//} else {
 			//newMoveValue = moveMin;
 		//}
 		//if (playerInputScript.pilloPressure2 > 0.005f) {
-		newMoveValue2 = Mathf.Clamp (playerInputScript.pilloPressure2 * (moveMax - moveMin), moveMin, moveMax);
+
+
 		//}
 		//else {
 			//newMoveValue2 = moveMin;

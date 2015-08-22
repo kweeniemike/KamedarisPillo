@@ -332,6 +332,14 @@ public class PilloController : MonoBehaviour
 	protected static int m_state = 0;
 	void Update()
 	{
+		try
+		{
+			bool m = m_receiver.ConnectedToPillo;
+		}
+		catch{
+			//Debug.LogWarning("NullReference Caught?");
+			return;
+		}
 		// report some debugging feedback
 		if (Debugging_Enabled) {
 			switch (m_state) {
