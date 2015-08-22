@@ -37,10 +37,12 @@ public class Cart : MonoBehaviour
 			} else if (opponent.tag == "Kokosnoot" && color == cartColor.green) {
 				score.negativeScore ();
 				objectcounter.goldMelonCounter = 0;
+
 				//Destroy(opponent.transform.gameObject);
 			} else if (opponent.tag == "Meloen" && color == cartColor.brown) {
 				score.negativeScore ();
 				objectcounter.goldKokosnootCounter = 0;
+
 				//Destroy(opponent.transform.parent.gameObject);
 			}
 		}
