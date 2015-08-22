@@ -10,11 +10,9 @@ public class Cart : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Debug.Log("Dead");
 		GameObject opponent = collision.collider.gameObject;
 		if(opponent.tag ==  "Meloen" && color == cartColor.red)
 		{
-			Debug.Log("Melon Dead");
 			if(opponent.name.StartsWith("Gouden"))
 			{
 				score.addSpecialScore();

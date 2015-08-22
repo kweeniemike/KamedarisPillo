@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class Score : MonoBehaviour {
 
-	public float timeToDeath = 60.0f;
+	public float timeToDeath = 6.0f;
 	private float score;
 	public float timeBallPoints = 5f;
 	private float currentTimeBallPoints = 0f;
@@ -42,12 +42,12 @@ public class Score : MonoBehaviour {
 		styleNormal.fontSize = 30;
 		styleNormal.normal.textColor = Color.yellow;
 		styleNormal.hover.textColor	 = Color.yellow;
-		styleNormal.alignment = TextAnchor.MiddleCenter;
+		styleNormal.alignment = TextAnchor.MiddleLeft;
 
 		styleMiddle.fontSize = 70;
 		styleMiddle.normal.textColor = Color.red;
 		styleMiddle.hover.textColor	 = Color.red;
-		styleMiddle.alignment = TextAnchor.MiddleCenter;
+		styleMiddle.alignment = TextAnchor.MiddleRight;
 
 		ScoreSaver.Scores newStuff = new ScoreSaver.Scores("You have not a lot scores yet!",-1);
 		ScoreSaver.scorings = ScoreSaver.ListNames(newStuff);//set the properly
@@ -107,11 +107,11 @@ public class Score : MonoBehaviour {
 
 	void OnGUI () {
 		if (!showScores) {
-			GUI.Label (new Rect (10, 10, 180, 160), scoreLabel);
-			GUI.Label (new Rect (Screen.width - 190, 10, 180, 160), timeLabel);
+			GUI.Label (new Rect (0, -5, 250, 160), scoreLabel);
+			GUI.Label (new Rect (Screen.width - 150, -5, 250, 160), timeLabel);
 
-			GUI.Label (new Rect (40, 100, 100, 50), "" + score, styleNormal);
-			GUI.Label (new Rect (Screen.width - 165, 100, 100, 50), text, styleNormal);
+			GUI.Label (new Rect (40, 60, 100, 50), "" + score, styleNormal);
+			GUI.Label (new Rect (Screen.width - 105, 60, 100, 50), text, styleNormal);
 
 			if (timeToDeath < 20) {
 				//	GUI.Label (new Rect (Screen.width * 0.42f, Screen.height * 0.8f, Screen.width * 0.2f, Screen.height * 0.2f), Sys.Math.Round(timeToDeath,2).ToString(),styleMiddle);
@@ -120,7 +120,7 @@ public class Score : MonoBehaviour {
 		} else {
 
 			GUI.Label (new Rect (Screen.width/2 - 275, 40, 600, 550), scoreScreen);
-			GUILayout.BeginArea(new Rect(Screen.width/2 - 300, 180, 600,550));
+			GUILayout.BeginArea(new Rect(Screen.width/2 - 50, 200, 600,550));
 			GUILayout.BeginVertical();
 	
 			foreach (var nam in ScoreSaver.pScorings)
@@ -133,13 +133,13 @@ public class Score : MonoBehaviour {
 			GUILayout.EndVertical();
 			GUILayout.EndArea();
 
-			if(GUI.Button(new Rect (Screen.width * 0.47f, Screen.height * 0.8f, Screen.width * 0.2f, Screen.height * 0.2f),"", quitBtn )){
+			if(GUI.Button(new Rect (Screen.width * 0.68f, Screen.height * 0.76f, Screen.width * 0.45f, Screen.height * 0.25f),"", quitBtn )){
 				ScoreSaver.SetData();
 				Time.timeScale =1;
 				Application.LoadLevel("WelkomScene");
 			}
 
-			if(GUI.Button(new Rect (Screen.width * 0.33f, Screen.height * 0.8f, Screen.width * 0.2f, Screen.height * 0.2f),"", playBtn )){
+			if(GUI.Button(new Rect (Screen.width * -0.12f, Screen.height * 0.76f, Screen.width * 0.45f, Screen.height * 0.25f),"", playBtn )){
 				ScoreSaver.SetData();
 				Time.timeScale =1;
 				Application.LoadLevel("MainScene");

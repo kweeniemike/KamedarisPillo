@@ -90,7 +90,7 @@ public class ScoreSaver : MonoBehaviour {
 			ListName.Add(temp);
 
 			i++;
-			if (i > 9)
+			if (i > 7)
 				break;
 		}
 		return ListName;
