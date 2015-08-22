@@ -21,7 +21,6 @@ public class Cart : MonoBehaviour {
 			{
 				score.addScore();
 			}
-			score.addScore();
 			objectcounter.goldMelonCounter++;
 		}
 		else if(opponent.tag == "Kokosnoot" && color == cartColor.blue)
