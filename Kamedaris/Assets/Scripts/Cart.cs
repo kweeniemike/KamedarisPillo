@@ -45,7 +45,6 @@ public class Cart : MonoBehaviour {
 		}
 		else if(opponent.tag == "Meloen" && color == cartColor.blue)
 		{
-			Debug.Log("Melon Dead");
 			score.negativeScore();
 			objectcounter.goldKokosnootCounter=0;
 			Destroy(opponent.transform.parent.gameObject);

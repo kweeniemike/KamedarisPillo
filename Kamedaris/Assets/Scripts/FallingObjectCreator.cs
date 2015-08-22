@@ -20,6 +20,8 @@ public class FallingObjectCreator : MonoBehaviour {
 	public int goldKokosnootCounter;
 	public float timeReduction;
 	public float timeInterval;
+	public float lowestSpawnTime;
+	public float highestSpawnTime;
 	private float nextReduction;
 
 	// Use this for initialization
@@ -51,6 +53,7 @@ public class FallingObjectCreator : MonoBehaviour {
 		if(currentTime >= nextReduction)
 		{
 			spawnTime = spawnTime - timeReduction;
+			spawnTime = Mathf.Clamp(spawnTime, lowestSpawnTime, highestSpawnTime);
 			nextReduction = nextReduction + timeInterval;
 		}
 		currentTime = Time.time - startTime;
