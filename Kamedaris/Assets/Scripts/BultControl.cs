@@ -139,7 +139,7 @@ public class BultControl : MonoBehaviour {
 		//*/
 
 
-		Debug.Log ("1" + moving + "-2" + moving2);
+		//Debug.Log ("1" + moving + "-2" + moving2);
 		/*if (newRotValue != currentRotValue && !rotating) {
 			currentRotValue = newRotValue;
 			StartCoroutine(Rotate(currentRotValue, bult01));
