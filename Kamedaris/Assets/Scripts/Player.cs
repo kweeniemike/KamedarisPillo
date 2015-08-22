@@ -49,12 +49,12 @@ public class Player : MonoBehaviour {
 		//Debug.Log("Accelz" + acceleration);
 		//Debug.Log (PilloController.GetSensor (pillo));
 		PilloController.GetSensor(pillo);
-		if (PilloController.GetSensor (pillo) < 0.1f) {
-			newSmooth [(int)pillo] = 0.1f;
-			oldSmooth[(int)pillo] = 0.1f;
-		} else if (PilloController.GetSensor (pillo) > 0.9f) {
-			newSmooth [(int)pillo] = 0.9f;
-			oldSmooth[(int)pillo] = 0.9f;
+		//if (PilloController.GetSensor (pillo) < 0.05f) {
+		//	newSmooth [(int)pillo] = 0.05f;
+		//	oldSmooth[(int)pillo] = 0.05f;
+		if (PilloController.GetSensor (pillo) > 0.95f) {
+			newSmooth [(int)pillo] = 0.95f;
+			oldSmooth[(int)pillo] = 0.95f;
 		} else {
 			newSmooth[(int)pillo] = (PilloController.GetSensor(pillo)/100)*100;
 		}

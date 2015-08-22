@@ -8,8 +8,8 @@ public class BultControl : MonoBehaviour {
 
 	public float newRotValue = 0f;
 	public Player playerInputScript;
-	public float exMin = 0.4f;
-	public float exMax = 2f;
+	public float exMin = 0.5f;
+	public float exMax = 1.5f;
 
 	private float currentRotValue = 0f;
 	private bool rotating = false;
@@ -25,25 +25,25 @@ public class BultControl : MonoBehaviour {
 	private Vector3 v3CurrentRot;
 	private float speedRot = 5f;
 
-	private Vector3 v3ToEx = Vector3.zero;
-	private Vector3 v3CurrentEx;
+	//private Vector3 v3ToEx = Vector3.zero;
+	//private Vector3 v3CurrentEx;
 	private float speedEx = 5f;
 
 	// Use this for initialization
 	void Start () {
 		v3CurrentRot = bult01.transform.eulerAngles;
-		v3CurrentEx = bult01.transform.localScale;
+		//v3CurrentEx = bult01.transform.localScale;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (playerInputScript.pilloPressure1 > 0.1) {
-			newExValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (exMax - exMin), exMin, exMax);
+		if (playerInputScript.pilloPressure1 > 0.005f) {
+			newExValue = Mathf.Clamp (playerInputScript.pilloPressure1 * (exMax - exMin)*1.5f, exMin, exMax);
 		} else {
 			newExValue = exMin;
 		}
-		if (playerInputScript.pilloPressure2 > 0.1) {
-			newExValue2 = Mathf.Clamp (playerInputScript.pilloPressure2 * (exMax - exMin), exMin, exMax);
+		if (playerInputScript.pilloPressure2 > 0.005f) {
+			newExValue2 = Mathf.Clamp (playerInputScript.pilloPressure2 * (exMax - exMin)*1.5f, exMin, exMax);
 		}
 		else {
 			newExValue2 = exMin;
@@ -84,7 +84,8 @@ public class BultControl : MonoBehaviour {
 	IEnumerator Expand(float size, GameObject bult, int number)
 	{
 		//Debug.Log(Vector3.Distance(v3ToEx, v3CurrentEx));
-		v3ToEx = new Vector3 (bult.transform.localScale.x, size, bult.transform.localScale.z);
+		Vector3 v3ToEx = new Vector3 (bult.transform.localScale.x, size, bult.transform.localScale.z);
+		Vector3 v3CurrentEx = bult.transform.localScale;
 		while (Vector3.Distance(v3ToEx, v3CurrentEx) > 0.05f) {
 			v3CurrentEx = Vector3.Lerp (v3CurrentEx, v3ToEx, Time.deltaTime * speedEx);
 			bult.transform.localScale = v3CurrentEx; 
