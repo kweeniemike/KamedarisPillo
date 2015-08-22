@@ -54,5 +54,9 @@ public class Slider : MonoBehaviour
 		float angleX = Vector3.Angle (Vector3.right, acceleration) - 90;
 		float angleZ = Vector3.Angle (Vector3.up, acceleration) - 90;
 		m_slider [(int)pillo].transform.rotation = Quaternion.Euler(angleX, 0, angleZ);
+		Quaternion accelQ = Quaternion.Euler (angleX, 0, angleZ);
+		float accelZ = accelQ.eulerAngles.z;
+		Debug.Log (accelZ);
+		//Debug.Log ("y" + (Vector3.Angle (Vector3.forward, acceleration) - 90));
 	}
 }

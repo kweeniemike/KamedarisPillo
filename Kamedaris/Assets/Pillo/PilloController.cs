@@ -336,7 +336,7 @@ public class PilloController : MonoBehaviour
 		if (Debugging_Enabled) {
 			switch (m_state) {
 			case 0:
-				print ("Started Example project...");
+				print ("Started project...");
 				m_state = 1;
 				break;
 			case 1:
