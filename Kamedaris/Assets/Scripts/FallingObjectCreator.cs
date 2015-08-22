@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class FallingObjectCreator : MonoBehaviour {
 	public GameObject MeloenPrefab;
@@ -23,9 +24,13 @@ public class FallingObjectCreator : MonoBehaviour {
 	public float lowestSpawnTime;
 	public float highestSpawnTime;
 	private float nextReduction;
+	public bool startTimerRunning = false;
+	public int countdownSeconds = 5;
+	public Text countdownText;
 
 	// Use this for initialization
 	void Start () {
+		StartCoroutine (startTimerCountdown(countdownSeconds, countdownText));
 		nextReduction = timeInterval;
 		startTime = Time.timeSinceLevelLoad;
 	}
@@ -33,8 +38,10 @@ public class FallingObjectCreator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		KeyInput();
-		SpawnOnTimer();
-		GoldObjectSpawner();
+		if (!startTimerRunning) {
+			SpawnOnTimer ();
+			GoldObjectSpawner ();
+		}
 	}
 	void KeyInput()
 	{
@@ -131,5 +138,19 @@ public class FallingObjectCreator : MonoBehaviour {
 	{
 		GameObject g = (GameObject) Instantiate(fallingObject, position, Quaternion.identity);
 		return g;
+	}
+
+	IEnumerator startTimerCountdown(int seconds, Text countdown)
+	{
+		startTimerRunning = true;
+		int secondsCounted = 0;
+		while (secondsCounted < seconds) {
+			countdown.text = (seconds - secondsCounted).ToString();
+			secondsCounted ++;
+			yield return new WaitForSeconds(1);
+		}
+		startTimerRunning = false;
+		countdown.text = "";
+		secondsCounted = 0;
 	}
 }
