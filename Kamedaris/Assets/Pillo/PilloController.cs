@@ -11,7 +11,7 @@ using Pillo;
 public class PilloController : MonoBehaviour 
 {
 	public static bool Debugging_Enabled = true; // use this to enable/disable debug messages. Be sure to set to false in the final build
-
+	public static bool pilloReady = false;
 	public static bool Use_Saved_Calibration_Values = false; // to determine whether this controller should use calibration values saved in the player prefs
 	private static Vector2[] calibration_PressureValue; //array to contain values needed for calibration. x = bottom value, y = top value
 
@@ -349,6 +349,7 @@ public class PilloController : MonoBehaviour
 				if (m_receiver.ConnectedToPillo) {
 					print ("Connected to PILLO Game Controller!");
 					m_state = 3;
+					pilloReady = true;
 				}
 				break;
 			case 3:
