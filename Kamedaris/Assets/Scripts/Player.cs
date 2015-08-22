@@ -52,12 +52,12 @@ public class Player : MonoBehaviour {
 		//if (PilloController.GetSensor (pillo) < 0.05f) {
 		//	newSmooth [(int)pillo] = 0.05f;
 		//	oldSmooth[(int)pillo] = 0.05f;
-		if (PilloController.GetSensor (pillo) > 0.95f) {
-			newSmooth [(int)pillo] = 0.95f;
-			oldSmooth[(int)pillo] = 0.95f;
-		} else {
+		//if (PilloController.GetSensor (pillo) > 0.95f) {
+		//	newSmooth [(int)pillo] = 0.95f;
+		//	oldSmooth[(int)pillo] = 0.95f;
+		//} else {
 			newSmooth[(int)pillo] = (PilloController.GetSensor(pillo)/100)*100;
-		}
+		//}
 
 		
 		float tempFloat = newSmooth[(int)pillo] * smoothFactor + oldSmooth[(int)pillo]*(1-smoothFactor);
