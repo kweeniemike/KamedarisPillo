@@ -14,6 +14,8 @@ public class WelcomeScreen : MonoBehaviour {
 	
 	public GUIStyle quitBtn = new GUIStyle();
 	public GUIStyle playBtn = new GUIStyle();
+	public GUIStyle creditBtn = new GUIStyle();
+	public GUIStyle descrBtn = new GUIStyle();
 	
 	
 	// Use this for initialization
@@ -35,21 +37,21 @@ public class WelcomeScreen : MonoBehaviour {
 		GUI.Label (new Rect (Screen.width * 0.25f,Screen.height * 0.03f, Screen.width * 0.45f, Screen.height * 0.25f),"", logo);
 			
 
-		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.25f, Screen.width * 0.17f, Screen.height * 0.17f),"", playBtn )){
+		if(GUI.Button(new Rect (Screen.width * 0.00f,Screen.height * 0.25f, Screen.width * 0.34f, Screen.height * 0.17f),"", playBtn )){
 			Application.LoadLevel("MainScene");
 		}
 
-		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.43f, Screen.width * 0.17f, Screen.height * 0.17f),"Game Guide", "button" )){
+		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.43f, Screen.width * 0.17f, Screen.height * 0.17f),"", creditBtn )){
 			description = !description;
 			credits = false;
 		}
 
-		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.61f, Screen.width * 0.17f, Screen.height * 0.17f),"credits", "button" )){
+		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.61f, Screen.width * 0.17f, Screen.height * 0.17f),"", descrBtn )){
 			credits = !credits;
 			description = false;
 		}
 
-		if(GUI.Button(new Rect (Screen.width * 0.08f,Screen.height * 0.79f, Screen.width * 0.17f, Screen.height * 0.17f),"", quitBtn )){
+		if(GUI.Button(new Rect (Screen.width * 0.00f,Screen.height * 0.79f, Screen.width * 0.34f, Screen.height * 0.17f),"", quitBtn )){
 			Application.Quit();
 		}
 
