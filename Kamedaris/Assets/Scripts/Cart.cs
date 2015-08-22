@@ -13,7 +13,7 @@ public class Cart : MonoBehaviour {
 		GameObject opponent = collision.collider.gameObject;
 		if(opponent.tag ==  "Meloen" && color == cartColor.red)
 		{
-			if(name.StartsWith("Gouden"))
+			if(opponent.name.StartsWith("Gouden"))
 			{
 				score.addSpecialScore();
 			}
@@ -26,7 +26,7 @@ public class Cart : MonoBehaviour {
 		}
 		else if(opponent.tag == "Kokosnoot" && color == cartColor.blue)
 		{
-			if(name.StartsWith("Gouden"))
+			if(opponent.name.StartsWith("Gouden"))
 			{
 				score.addSpecialScore();
 			}
