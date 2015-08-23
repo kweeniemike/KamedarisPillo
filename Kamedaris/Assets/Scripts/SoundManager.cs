@@ -4,19 +4,22 @@ using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour {
 	private static Dictionary<string, AudioSource> sounds = new Dictionary<string, AudioSource>();
-
-
+	private static Dictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
+	public List<AudioClip> clipsUsed;
 	// Use this for initialization
 	void Start () {
 		AudioSource[] tempSounds = this.GetComponents<AudioSource> ();
 		foreach (AudioSource sound in tempSounds) {
 			sounds.Add(sound.clip.name, sound);
 		}
+		foreach (AudioClip clip in clipsUsed) {
+			clips.Add(clip.name, clip);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		/*
+		//*
 		if (Input.GetKeyDown(KeyCode.P))
 		{
 			toggleMainTheme(false);
@@ -24,7 +27,7 @@ public class SoundManager : MonoBehaviour {
 		}
 		if (Input.GetKeyDown(KeyCode.R))
 		{
-			PlaySongOnce("WatermelonSplat01");
+			PlayClipOnce("WatermelonSplat01");
 		}
 		//*/
 	}
@@ -47,6 +50,12 @@ public class SoundManager : MonoBehaviour {
 	{
 		AudioSource sound = sounds [name];
 		sound.PlayOneShot(sound.clip);
+	}
+
+	public static void PlayClipOnce(string name)
+	{
+		AudioClip clip = clips [name];
+		AudioSource.PlayClipAtPoint (clip, Vector3.zero);
 	}
 
 	public static void toggleMainTheme(bool active)

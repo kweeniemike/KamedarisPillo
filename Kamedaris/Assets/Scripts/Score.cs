@@ -68,7 +68,9 @@ public class Score : MonoBehaviour {
 
 	public void negativeScore(){
 		var tmp = Camera.main.gameObject.GetComponent<ScreenShake>();
-		tmp.Shake(0.55f);
+		tmp.Shake(0.45f);
+		string clipName = "WatermelonSplat0" + Random.Range (1, 4).ToString ();
+		SoundManager.PlayClipOnce (clipName);
 		//score-=normalBallPoints;
 		//AudioSource src = GetComponent<AudioSource>();
 		//src.clip = deathSound[Random.Range(0,deathSound.Count)];
