@@ -17,7 +17,6 @@ public class WelcomeScreen : MonoBehaviour {
 	public GUIStyle creditBtn = new GUIStyle();
 	public GUIStyle descrBtn = new GUIStyle();
 	
-	
 	// Use this for initialization
 	void Start () {
 		Time.timeScale = 1;
@@ -29,15 +28,13 @@ public class WelcomeScreen : MonoBehaviour {
 		}
 	}
 	
-	
-	
 	void OnGUI(){
 
 		GUI.Label (new Rect (0,0, Screen.width, Screen.height), "", background);
 		//GUI.Label (new Rect (Screen.width * 0.25f,Screen.height * 0.03f, Screen.width * 0.45f, Screen.height * 0.25f),"", logo);
 			
 
-		if(GUI.Button(new Rect (Screen.width * 0.3f,Screen.height * 0.25f, Screen.width * 0.34f, Screen.height * 0.17f),"", playBtn )){
+		if(GUI.Button(new Rect (Screen.width * 0.38f,Screen.height * 0.25f, Screen.width * 0.17f, Screen.height * 0.17f),"", playBtn )){
 			Application.LoadLevel("MainScene");
 		}
 
@@ -51,7 +48,7 @@ public class WelcomeScreen : MonoBehaviour {
 			description = false;
 		}
 
-		if(GUI.Button(new Rect (Screen.width * 0.30f,Screen.height * 0.79f, Screen.width * 0.34f, Screen.height * 0.17f),"", quitBtn )){
+		if(GUI.Button(new Rect (Screen.width * 0.38f,Screen.height * 0.79f, Screen.width * 0.17f, Screen.height * 0.17f),"", quitBtn )){
 			Application.Quit();
 		}
 
