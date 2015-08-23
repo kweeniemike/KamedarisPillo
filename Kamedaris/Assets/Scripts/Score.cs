@@ -125,9 +125,7 @@ public class Score : MonoBehaviour
 			currentTimeBallPoints -= timeBallPointsDecay;
 		} else if (Time.timeSinceLevelLoad >= 180 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay * 4.5)) {
 			currentTimeBallPoints -= timeBallPointsDecay;
-}
-
-
+		}
 	}
 
 	public void addSpecialScore ()

@@ -40,7 +40,7 @@ public class FallingObjectCreator : MonoBehaviour {
 		if (Score.gameEnded) {
 			return;
 		}
-		KeyInput();
+		//KeyInput();
 		if (!startTimerRunning) {
 			SpawnOnTimer ();
 			GoldObjectSpawner ();
