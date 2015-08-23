@@ -26,6 +26,17 @@ public class WelcomeScreen : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Escape)) {
 			Application.Quit();
 		}
+		if (Input.GetKey (KeyCode.R)) {
+			Application.LoadLevel("MainScene");
+		}
+		if (Input.GetKey (KeyCode.D)) {
+			description = !description;
+			credits = false;
+		}
+		if (Input.GetKey (KeyCode.C)) {
+			credits = !credits;
+			description = false;
+		}
 	}
 	
 	void OnGUI(){
