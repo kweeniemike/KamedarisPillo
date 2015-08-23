@@ -32,7 +32,8 @@ public class ScreenShake : MonoBehaviour {
 		oldTransformation = this.transform.position;
 	
 		//shake the camera until the times runs out
-		if (Time.timeSinceLevelLoad < timer&&Time.timeScale==1)
+		//Time.timeScale==1
+		if (Time.timeSinceLevelLoad < timer&& !Score.gameEnded)
 		{
 			ShakeCamera(0.012f, 0.004f);
 		}else if(this.transform.rotation!=startRotation||this.transform.position!=startTransformation){

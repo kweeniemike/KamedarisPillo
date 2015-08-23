@@ -23,6 +23,9 @@ public class SelfDestruction : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
+		if (Score.gameEnded) {
+			return;
+		}
 		if(start)
 		{
 			if(Time.timeSinceLevelLoad >= endTime)

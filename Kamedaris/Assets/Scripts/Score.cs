@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Score : MonoBehaviour {
-
+	public static bool gameEnded = false;
 	public float timeToDeath = 6.0f;
 	private float score;
 	public float timeBallPoints = 5f;
@@ -88,6 +88,9 @@ public class Score : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		if (Score.gameEnded) {
+			return;
+		}
 		if (fallingObjectCreator.startTimerRunning) {
 			return;
 		}
@@ -106,7 +109,7 @@ public class Score : MonoBehaviour {
 			showScores = true;
 			SoundManager.ToggleMainTheme(false);
 			SoundManager.PlayClipOnce("Victory01", 1f);
-			Time.timeScale = 0;
+			gameEnded = true;
 		}
 
 		if(Time.timeSinceLevelLoad>=50&&(currentTimeBallPoints > timeBallPoints-timeBallPointsDecay)){

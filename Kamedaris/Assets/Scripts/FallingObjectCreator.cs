@@ -37,6 +37,9 @@ public class FallingObjectCreator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Score.gameEnded) {
+			return;
+		}
 		KeyInput();
 		if (!startTimerRunning) {
 			SpawnOnTimer ();

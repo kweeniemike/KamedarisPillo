@@ -15,6 +15,9 @@ public class Cart : MonoBehaviour
 
 	void OnTriggerEnter (Collider collider)
 	{
+		if (Score.gameEnded) {
+			return;
+		}
 		GameObject opponent = collider.gameObject;
 		if (AddToList(opponent)) {
 			opponent.GetComponent<SelfDestruction>().StartTimer();
