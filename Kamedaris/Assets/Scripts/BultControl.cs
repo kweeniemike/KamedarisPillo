@@ -53,6 +53,10 @@ public class BultControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (Score.gameEnded) {
+			return;
+		}
+
 		if (!PilloController.pilloReady) {
 			newMoveValue = Mathf.Clamp ( Input.GetAxis ("Vertical") * (moveMax - moveMin), moveMin, moveMax);
 			newMoveValue2 = Mathf.Clamp ( Input.GetAxis ("Vertical2") * (moveMax - moveMin), moveMin, moveMax);

@@ -37,6 +37,9 @@ public class FallingObjectCreator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Score.gameEnded) {
+			return;
+		}
 		KeyInput();
 		if (!startTimerRunning) {
 			SpawnOnTimer ();
@@ -152,5 +155,6 @@ public class FallingObjectCreator : MonoBehaviour {
 		startTimerRunning = false;
 		countdown.text = "";
 		secondsCounted = 0;
+		SoundManager.ToggleMainTheme (true);
 	}
 }
