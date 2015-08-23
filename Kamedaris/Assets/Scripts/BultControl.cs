@@ -5,6 +5,10 @@ public class BultControl : MonoBehaviour {
 
 	public GameObject bult01;
 	public GameObject bult02;
+	public GameObject bultLeft;
+	public GameObject bultLeft2;
+	public GameObject bultRight;
+	public GameObject bultRight2;
 
 	//public float newRotValue = 0f;
 	public Player playerInputScript;
@@ -114,9 +118,13 @@ public class BultControl : MonoBehaviour {
 
 		if (moving) {
 			Vector3 v3ToMove = new Vector3 (bult01.transform.position.x, currentMoveValue, bult01.transform.position.z);
+			Vector3 v3ToMoveGraphic = new Vector3 (bult01.transform.position.x, currentMoveValue-0.67f, bult01.transform.position.z);
+			Vector3 v3ToMoveGraphic2 = new Vector3 (bult01.transform.position.x, (currentMoveValue*0.75f)-1.35f, bult01.transform.position.z);
 			Vector3 v3CurrentMove = bult01.transform.position;
 			if(Vector3.Distance(v3ToMove, v3CurrentMove) > 0.005f) {
 				bult01.GetComponent<Rigidbody> ().MovePosition (v3ToMove);
+				bultLeft.GetComponent<Rigidbody> ().MovePosition (v3ToMoveGraphic);
+				bultLeft2.GetComponent<Rigidbody> ().MovePosition (v3ToMoveGraphic2);
 			}
 			else
 			{
@@ -126,9 +134,13 @@ public class BultControl : MonoBehaviour {
 
 		if (moving2) {
 			Vector3 v3ToMove2 = new Vector3 (bult02.transform.position.x, currentMoveValue2, bult02.transform.position.z);
+			Vector3 v3ToMove2Graphic = new Vector3 (bult02.transform.position.x, currentMoveValue2-0.67f, bult02.transform.position.z);
+			Vector3 v3ToMove2Graphic2 = new Vector3 (bult02.transform.position.x, (currentMoveValue2*0.75f)-1.35f, bult02.transform.position.z);
 			Vector3 v3CurrentMove2 = bult02.transform.position;
 			if(Vector3.Distance(v3ToMove2, v3CurrentMove2) > 0.005f) {
 				bult02.GetComponent<Rigidbody> ().MovePosition (v3ToMove2);
+				bultRight.GetComponent<Rigidbody> ().MovePosition (v3ToMove2Graphic);
+				bultRight2.GetComponent<Rigidbody> ().MovePosition (v3ToMove2Graphic2);
 			}
 			else
 			{
