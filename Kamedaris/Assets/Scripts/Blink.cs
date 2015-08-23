@@ -16,7 +16,7 @@ public class Blink : MonoBehaviour {
 	void FixedUpdate () {
 		if(blink)
 		{
-			r.sprite = blinkImage;
+			r.sprite = unblinkImage;
 			blink = false;
 		}
 		if(!blink)
@@ -28,7 +28,7 @@ public class Blink : MonoBehaviour {
 			}
 			if(blink)
 			{
-				r.sprite = unblinkImage;
+				r.sprite = blinkImage;
 			}
 		}
 	}
