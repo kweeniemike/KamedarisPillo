@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour {
 	public List<AudioClip> clipsUsed;
 	// Use this for initialization
 	void Start () {
+		sounds = new Dictionary<string, AudioSource>();
+		clips = new Dictionary<string, AudioClip>();
 		AudioSource[] tempSounds = this.GetComponents<AudioSource> ();
 		foreach (AudioSource sound in tempSounds) {
 			sounds.Add(sound.clip.name, sound);
