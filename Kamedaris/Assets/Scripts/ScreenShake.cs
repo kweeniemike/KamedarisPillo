@@ -5,7 +5,8 @@ public class ScreenShake : MonoBehaviour {
 
 	private Vector3 oldTransformation;
 	private Quaternion oldRotation;
-
+	private Vector3 startTransformation;
+	private Quaternion startRotation;
 	private float timer = 0.0f;
 
 
@@ -14,6 +15,9 @@ public class ScreenShake : MonoBehaviour {
 		//set the default rotation
 		oldRotation = this.transform.rotation;
 		oldTransformation = this.transform.position;
+
+		startRotation = this.transform.rotation;
+		startTransformation = this.transform.position;
 
 		return;
 	}
@@ -28,9 +32,12 @@ public class ScreenShake : MonoBehaviour {
 		oldTransformation = this.transform.position;
 	
 		//shake the camera until the times runs out
-		if (Time.timeSinceLevelLoad < timer)
+		if (Time.timeSinceLevelLoad < timer&&Time.timeScale==1)
 		{
-			ShakeCamera(0.015f, 0.005f);
+			ShakeCamera(0.012f, 0.004f);
+		}else if(this.transform.rotation!=startRotation||this.transform.position!=startTransformation){
+			this.transform.rotation = startRotation;
+			this.transform.position = startTransformation;
 		}
 		
 	}
