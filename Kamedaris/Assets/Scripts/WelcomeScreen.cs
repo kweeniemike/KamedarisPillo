@@ -6,7 +6,9 @@ public class WelcomeScreen : MonoBehaviour {
 	
 	private bool credits = false;
 	private bool description = false;
-	
+
+	public Player playerInputScript;
+
 	public GUIStyle background;
 	public GUIStyle logo;
 	public Texture2D t_description;
@@ -26,7 +28,7 @@ public class WelcomeScreen : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Escape)) {
 			Application.Quit();
 		}
-		if (Input.GetKey (KeyCode.R)) {
+		if (Input.GetKey (KeyCode.R) || playerInputScript.pilloPressure1 >= 0.5f || playerInputScript.pilloPressure2 >= 0.5f) {
 			Application.LoadLevel("MainScene");
 		}
 		if (Input.GetKey (KeyCode.D)) {
@@ -37,6 +39,8 @@ public class WelcomeScreen : MonoBehaviour {
 			credits = !credits;
 			description = false;
 		}
+
+
 	}
 	
 	void OnGUI(){
