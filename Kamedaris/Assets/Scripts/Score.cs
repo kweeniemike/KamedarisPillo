@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class Score : MonoBehaviour
 {
+	public Player playerInputScript;
 	public static bool gameEnded = false;
 	public float timeToDeath = 6.0f;
 	private float score;
@@ -31,6 +32,8 @@ public class Score : MonoBehaviour
 	private int seconds;
 	private int fraction;
 	private float highScore = 0;
+	public float timeOfEnding = 0f;
+
 
 	// Use this for initialization
 	void Start ()
@@ -109,6 +112,7 @@ public class Score : MonoBehaviour
 			SoundManager.ToggleMainTheme (false);
 			SoundManager.PlayClipOnce ("Victory01", 1f);
 			gameEnded = true;
+			timeOfEnding = Time.timeSinceLevelLoad;
 		}
 
 		if (Time.timeSinceLevelLoad >= 50 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay)) {
@@ -170,13 +174,13 @@ public class Score : MonoBehaviour
 
 			if (GUI.Button (new Rect (Screen.width * 0.75f, Screen.height * 0.8f, Screen.width * 0.25f, Screen.height * 0.20f), "", quitBtn)) {
 				ScoreSaver.SetData ();
-				Time.timeScale = 1;
+				//Time.timeScale = 1;
 				Application.LoadLevel ("WelkomScene");
 			}
 
 			if (GUI.Button (new Rect (0, Screen.height * 0.8f, Screen.width * 0.25f, Screen.height * 0.20f), "", playBtn)) {
 				ScoreSaver.SetData ();
-				Time.timeScale = 1;
+				//Time.timeScale = 1;
 				Application.LoadLevel ("MainScene");
 			}
 		}
@@ -184,15 +188,28 @@ public class Score : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetKey (KeyCode.Backspace)) {
-			ScoreSaver.SetData ();
-			Time.timeScale = 1;
-			Application.LoadLevel ("WelkomScene");
-		}
-		if (Input.GetKey (KeyCode.R)) {
-			ScoreSaver.SetData ();
-			Time.timeScale = 1;
-			Application.LoadLevel ("MainScene");
+		if (showScores) {
+
+			if (Input.GetKey (KeyCode.Backspace)) {
+				ScoreSaver.SetData ();
+				//Time.timeScale = 1;
+				Application.LoadLevel ("WelkomScene");
+			}
+			if (Input.GetKey (KeyCode.R)) {
+				ScoreSaver.SetData ();
+				//Time.timeScale = 1;
+				Application.LoadLevel ("MainScene");
+			}
+			if(Time.timeSinceLevelLoad - timeOfEnding > 5)
+			{
+				if(playerInputScript.pilloPressure1 >= 0.5f || playerInputScript.pilloPressure2 >= 0.5f)
+				{
+					ScoreSaver.SetData ();
+					//Time.timeScale = 1;
+					Application.LoadLevel ("MainScene");
+				}
+			}
 		}
 	}
+
 }
