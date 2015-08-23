@@ -113,13 +113,20 @@ public class Score : MonoBehaviour
 			timeOfEnding = Time.timeSinceLevelLoad;
 		}
 
-		if (Time.timeSinceLevelLoad >= 50 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay)) {
+		if (Time.timeSinceLevelLoad >= 30 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay)) {
 			currentTimeBallPoints -= timeBallPointsDecay;
-		} else if (Time.timeSinceLevelLoad >= 100 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay * 2)) {
+		} else if (Time.timeSinceLevelLoad >= 60 && (currentTimeBallPoints > timeBallPoints - (timeBallPointsDecay * 2))) {
 			currentTimeBallPoints -= timeBallPointsDecay;
-		} else if (Time.timeSinceLevelLoad >= 150 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay * 3)) {
+		} else if (Time.timeSinceLevelLoad >= 90 && (currentTimeBallPoints > timeBallPoints - (timeBallPointsDecay * 3))) {
 			currentTimeBallPoints -= timeBallPointsDecay;
-		}
+		} else if (Time.timeSinceLevelLoad >= 120 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay * 3.5)) {
+			currentTimeBallPoints -= timeBallPointsDecay;
+		} else if (Time.timeSinceLevelLoad >= 150 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay * 4)) {
+			currentTimeBallPoints -= timeBallPointsDecay;
+		} else if (Time.timeSinceLevelLoad >= 180 && (currentTimeBallPoints > timeBallPoints - timeBallPointsDecay * 4.5)) {
+			currentTimeBallPoints -= timeBallPointsDecay;
+}
+
 
 	}
 
