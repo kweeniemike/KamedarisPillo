@@ -15,7 +15,9 @@ public class Player : MonoBehaviour {
 	public float pilloPressure1;
 	public float pilloPressure2;
 
-
+	public void Start(){
+		PilloController.ConfigureSensorRange (0x50, 0x6f);
+	}
 
 	private void Update(){
 		if (Input.GetKey (KeyCode.Escape)) {

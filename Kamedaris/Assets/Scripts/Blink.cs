@@ -14,7 +14,7 @@ public class Blink : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(blink)
+		/*if(blink)
 		{
 			r.sprite = unblinkImage;
 			blink = false;
@@ -30,6 +30,6 @@ public class Blink : MonoBehaviour {
 			{
 				r.sprite = blinkImage;
 			}
-		}
+		}*/
 	}
 }
