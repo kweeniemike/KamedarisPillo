@@ -39,11 +39,15 @@ public class Cart : MonoBehaviour
 				//Destroy(opponent.transform.gameObject);
 			} else if (opponent.tag == "Kokosnoot" && color == cartColor.green) {
 				score.negativeScore ();
+				string clipName = "Coconut0" + Random.Range (1, 5).ToString ();
+				SoundManager.PlayClipOnce (clipName, 0.75f);
 				objectcounter.goldMelonCounter = 0;
 
 				//Destroy(opponent.transform.gameObject);
 			} else if (opponent.tag == "Meloen" && color == cartColor.brown) {
 				score.negativeScore ();
+				string clipName = "WatermelonSplat0" + Random.Range (1, 4).ToString ();
+				SoundManager.PlayClipOnce (clipName, 0.50f);
 				objectcounter.goldKokosnootCounter = 0;
 
 				//Destroy(opponent.transform.parent.gameObject);
