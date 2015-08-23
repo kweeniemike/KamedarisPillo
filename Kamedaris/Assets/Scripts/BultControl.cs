@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BultControl : MonoBehaviour {
-	public  bool fourPlayerMode = false;
+	public bool fourPlayerMode = false;
 	public GameObject bult01;
 	public GameObject bult02;
 	public GameObject bult03;

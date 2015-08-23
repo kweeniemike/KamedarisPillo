@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class Score : MonoBehaviour
 {
+	public BultControl bultcontrol;
 	public Player playerInputScript;
 	public static bool gameEnded = false;
 	public float timeToDeath = 6.0f;
@@ -186,7 +187,14 @@ public class Score : MonoBehaviour
 			if (GUI.Button (new Rect (0, Screen.height * 0.8f, Screen.width * 0.25f, Screen.height * 0.20f), "", playBtn)) {
 				ScoreSaver.SetData ();
 				//Time.timeScale = 1;
-				Application.LoadLevel ("MainScene");
+				if(!bultcontrol.fourPlayerMode)
+				{
+					Application.LoadLevel ("MainScene");
+				}
+				else
+				{
+					Application.LoadLevel ("DoubleMainScene");
+				}
 			}
 		}
 	}
@@ -203,7 +211,15 @@ public class Score : MonoBehaviour
 			if (Input.GetKey (KeyCode.R)) {
 				ScoreSaver.SetData ();
 				//Time.timeScale = 1;
-				Application.LoadLevel ("MainScene");
+
+				if(!bultcontrol.fourPlayerMode)
+				{
+					Application.LoadLevel ("MainScene");
+				}
+				else
+				{
+					Application.LoadLevel ("DoubleMainScene");
+				}
 			}
 			if(Time.timeSinceLevelLoad - timeOfEnding > 5)
 			{
@@ -211,7 +227,14 @@ public class Score : MonoBehaviour
 				{
 					ScoreSaver.SetData ();
 					//Time.timeScale = 1;
-					Application.LoadLevel ("MainScene");
+					if(!bultcontrol.fourPlayerMode)
+					{
+						Application.LoadLevel ("MainScene");
+					}
+					else
+					{
+						Application.LoadLevel ("DoubleMainScene");
+					}
 				}
 			}
 		}
