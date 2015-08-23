@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour {
 	private static Dictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
 	public List<AudioClip> clipsUsed;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		sounds = new Dictionary<string, AudioSource>();
 		clips = new Dictionary<string, AudioClip>();
 		AudioSource[] tempSounds = this.GetComponents<AudioSource> ();

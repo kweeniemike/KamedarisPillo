@@ -1,0 +1,56 @@
+Mono path[0] = 'D:/Git/KamedarisPillo/Kamedaris/Builds/Kamedaris_Data/Managed'
+Mono path[1] = 'D:/Git/KamedarisPillo/Kamedaris/Builds/Kamedaris_Data/Mono'
+Mono config path = 'D:/Git/KamedarisPillo/Kamedaris/Builds/Kamedaris_Data/Mono/etc'
+PlayerConnection initialized from D:/Git/KamedarisPillo/Kamedaris/Builds/Kamedaris_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55206
+Multi-casting "[IP] 192.168.1.198 [Port] 55206 [Flags] 2 [Guid] 4215545296 [EditorId] 1137116385 [Version] 1048832 [Id] WindowsPlayer(OldFaithful) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.198:55206]
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.0]
+    Renderer: NVIDIA Quadro FX 770M (ID=0x65c)
+    Vendor:   NVIDIA
+    VRAM:     495 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\KeyManager.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\KeyManager.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\PDK.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\PDK.dll into Unity Child Domain
+- Completed reload, in  0.076 seconds
+desktop: 1680x1050 60Hz; virtual: 1680x1050 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\Kamedaris_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1554 -> priority: 1 
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1160.989868 ms
+System memory in use before: 26.5 MB.
+System memory in use after: 26.5 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 578.
+Total: 0.408783 ms (FindLiveObjects: 0.030062 ms CreateObjectMapping: 0.026763 ms MarkObjects: 0.299896 ms  DeleteObjects: 0.035928 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.289029 ms
+System memory in use before: 28.5 MB.
+System memory in use after: 28.4 MB.
+
+Unloading 112 unused Assets to reduce memory usage. Loaded Objects now: 232.
+Total: 1.479318 ms (FindLiveObjects: 0.020897 ms CreateObjectMapping: 0.021630 ms MarkObjects: 0.225105 ms  DeleteObjects: 1.203985 ms)
+
+UnloadTime: 0.690715 ms

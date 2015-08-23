@@ -1,0 +1,62 @@
+Initialize engine version: 5.1.2f1 (afd2369b692a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.0]
+    Renderer: NVIDIA Quadro FX 770M (ID=0x65c)
+    Vendor:   NVIDIA
+    VRAM:     495 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\KeyManager.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\KeyManager.dll into Unity Child Domain
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\PDK.dll (this message is harmless)
+Loading D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\PDK.dll into Unity Child Domain
+- Completed reload, in  0.085 seconds
+desktop: 1680x1050 60Hz; virtual: 1680x1050 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Git\KamedarisPillo\Kamedaris\Builds\KamedarisV2\Kamedaris_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 177c -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2432.764648 ms
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 619.
+Total: 0.335825 ms (FindLiveObjects: 0.026763 ms CreateObjectMapping: 0.026396 ms MarkObjects: 0.247469 ms  DeleteObjects: 0.028596 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.349521 ms
+
+Unloading 112 unused Assets to reduce memory usage. Loaded Objects now: 233.
+Total: 1.322771 ms (FindLiveObjects: 0.033729 ms CreateObjectMapping: 0.021997 ms MarkObjects: 0.219606 ms  DeleteObjects: 1.032040 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 973.566956 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 581.
+Total: 0.400717 ms (FindLiveObjects: 0.039961 ms CreateObjectMapping: 0.037762 ms MarkObjects: 0.287431 ms  DeleteObjects: 0.028596 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.774449 ms
+
+Unloading 112 unused Assets to reduce memory usage. Loaded Objects now: 233.
+Total: 0.705013 ms (FindLiveObjects: 0.017231 ms CreateObjectMapping: 0.021997 ms MarkObjects: 0.208241 ms  DeleteObjects: 0.444345 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1938.622314 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 233.
+Total: 0.311628 ms (FindLiveObjects: 0.021997 ms CreateObjectMapping: 0.021630 ms MarkObjects: 0.246369 ms  DeleteObjects: 0.014298 ms)
+

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
 
 	public float pilloPressure1;
 	public float pilloPressure2;
+	public float pilloPressure3;
+	public float pilloPressure4;
 
 	public void Start(){
 		PilloController.ConfigureSensorRange (0x50, 0x6f);
@@ -30,6 +32,8 @@ public class Player : MonoBehaviour {
 		{
 			pilloPressure1 = (f_update(PilloID.Pillo1));
 			pilloPressure2 = (f_update(PilloID.Pillo2));
+			pilloPressure3 = (f_update(PilloID.Pillo3));
+			pilloPressure4 = (f_update(PilloID.Pillo4));
 			                  //*-1) + OFFSET
 			
 		} catch (Sys.Exception e)
