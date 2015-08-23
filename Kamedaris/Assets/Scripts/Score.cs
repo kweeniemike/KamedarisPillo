@@ -67,7 +67,7 @@ public class Score : MonoBehaviour
 		var tmp = Camera.main.gameObject.GetComponent<ScreenShake> ();
 		tmp.Shake (0.45f);
 		string clipName = "WatermelonSplat0" + Random.Range (1, 4).ToString ();
-		SoundManager.PlayClipOnce (clipName, 0.75f);
+		SoundManager.PlayClipOnce (clipName, 0.50f);
 		//score-=normalBallPoints;
 		//AudioSource src = GetComponent<AudioSource>();
 		//src.clip = deathSound[Random.Range(0,deathSound.Count)];
@@ -128,6 +128,7 @@ public class Score : MonoBehaviour
 		//src.clip = ScoreSound[Random.Range(0,ScoreSound.Count)];
 		timeToDeath += currentTimeBallPoints;
 		//src.Play();
+		//TODO add special sound for golden stuff
 	}
 
 	void OnGUI ()
