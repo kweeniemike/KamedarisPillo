@@ -70,7 +70,7 @@ public class Score : MonoBehaviour {
 		var tmp = Camera.main.gameObject.GetComponent<ScreenShake>();
 		tmp.Shake(0.45f);
 		string clipName = "WatermelonSplat0" + Random.Range (1, 4).ToString ();
-		SoundManager.PlayClipOnce (clipName);
+		SoundManager.PlayClipOnce (clipName, 0.75f);
 		//score-=normalBallPoints;
 		//AudioSource src = GetComponent<AudioSource>();
 		//src.clip = deathSound[Random.Range(0,deathSound.Count)];
@@ -79,6 +79,8 @@ public class Score : MonoBehaviour {
 
 	public void addScore(){
 		score+=normalBallPoints;
+		string clipName = "Score0" + Random.Range (1, 4).ToString ();
+		SoundManager.PlayClipOnce (clipName, 1.00f);
 		//AudioSource src = GetComponent<AudioSource>();
 		//src.clip = ScoreSound[Random.Range(0,ScoreSound.Count)];
 		timeToDeath += currentTimeBallPoints;
@@ -102,8 +104,9 @@ public class Score : MonoBehaviour {
 			ScoreSaver.Scores save = new ScoreSaver.Scores(Sys.DateTime.UtcNow.ToString(),score);
 			ScoreSaver.scorings = ScoreSaver.ListNames(save);
 			showScores = true;
+			SoundManager.ToggleMainTheme(false);
+			SoundManager.PlayClipOnce("Victory01", 1f);
 			Time.timeScale = 0;
-
 		}
 
 		if(Time.timeSinceLevelLoad>=50&&(currentTimeBallPoints > timeBallPoints-timeBallPointsDecay)){
@@ -141,7 +144,7 @@ public class Score : MonoBehaviour {
 			GUI.Label (new Rect (Screen.width/2 - 275, 40, 600, 550), scoreScreen);
 			GUILayout.BeginArea(new Rect(Screen.width/2 - 50, 200, 600,550));
 			GUILayout.BeginVertical();
-	
+			bool highscoreFound = false;
 			foreach (var nam in ScoreSaver.pScorings)
 			{
 				//if(nam.Length > 1){
@@ -150,9 +153,10 @@ public class Score : MonoBehaviour {
 				//Debug.Log(nam);
 				if(nam != null)
 				{
-					if(((string)nam).Equals(highScore.ToString()))
+					if(((string)nam).Equals(highScore.ToString())&& !highscoreFound)
 					{
 						GUILayout.Box(nam,styleOwnScore);
+						highscoreFound = true;
 					}
 					else
 					{

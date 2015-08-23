@@ -19,17 +19,6 @@ public class SoundManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//*
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			toggleMainTheme(false);
-			PlaySongOnce("Victory01");
-		}
-		if (Input.GetKeyDown(KeyCode.R))
-		{
-			PlayClipOnce("WatermelonSplat01");
-		}
-		//*/
 	}
 
 	//Method for playing songs by name for once
@@ -46,19 +35,13 @@ public class SoundManager : MonoBehaviour {
 	 * Watermeloen Splat01 - 02 - 03 - Sound effects bij error?
 	 */
 
-	public static void PlaySongOnce(string name)
-	{
-		AudioSource sound = sounds [name];
-		sound.PlayOneShot(sound.clip);
-	}
-
-	public static void PlayClipOnce(string name)
+	public static void PlayClipOnce(string name, float volume)
 	{
 		AudioClip clip = clips [name];
-		AudioSource.PlayClipAtPoint (clip, Vector3.zero);
+		AudioSource.PlayClipAtPoint (clip, Vector3.zero, volume);
 	}
 
-	public static void toggleMainTheme(bool active)
+	public static void ToggleMainTheme(bool active)
 	{
 		AudioSource mainMusic = sounds ["MainMusic"];
 		if (active && !mainMusic.isPlaying) {

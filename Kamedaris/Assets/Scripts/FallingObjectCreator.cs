@@ -152,5 +152,6 @@ public class FallingObjectCreator : MonoBehaviour {
 		startTimerRunning = false;
 		countdown.text = "";
 		secondsCounted = 0;
+		SoundManager.ToggleMainTheme (true);
 	}
 }
