@@ -27,6 +27,8 @@ public class FallingObjectCreator : MonoBehaviour {
 	public bool startTimerRunning = false;
 	public int countdownSeconds = 5;
 	public Text countdownText;
+	private enum SpawnLocation{Left, Center, Right};
+	public float maxHorizontalForce;
 
 	// Use this for initialization
 	void Start () {
@@ -50,11 +52,11 @@ public class FallingObjectCreator : MonoBehaviour {
 	{
 		if (Input.GetKeyDown(KeyCode.M))
 		{
-			CreateMelon(CreateRandomVector());
+			CreateMelon(CreateRandomVector(),SpawnLocation.Left,new Vector3(maxHorizontalForce,0,0));
 		}
 		if (Input.GetKeyDown(KeyCode.K))
 		{
-			CreateKokosnoot(CreateRandomVector());
+			CreateKokosnoot(CreateRandomVector(),SpawnLocation.Right,new Vector3(maxHorizontalForce,0,0));
 		}
 	}
 
@@ -69,13 +71,14 @@ public class FallingObjectCreator : MonoBehaviour {
 		currentTime = Time.time - startTime;
 		if(currentTime >= lastSpawnTime + spawnTime)
 		{
+			SpawnLocation sp = (SpawnLocation)Random.Range(0,3);
 			int r = Random.Range(0,2);
 			if(r == 1)
 			{
-				CreateMelon(CreateRandomVector());
+				CreateMelon(CreateRandomVector(),sp,CreateRandomForce());
 			}
 			else{
-				CreateKokosnoot(CreateRandomVector());
+				CreateKokosnoot(CreateRandomVector(),sp,CreateRandomForce());
 			}
 			lastSpawnTime = currentTime;
 		}
@@ -84,12 +87,14 @@ public class FallingObjectCreator : MonoBehaviour {
 	{
 		if(goldKokosnootCounter >= 5)
 		{
-			CreateGoudenKokosnoot(CreateRandomVector());
+			SpawnLocation sp = (SpawnLocation)Random.Range(0,3);
+			CreateGoudenKokosnoot(CreateRandomVector(),sp,CreateRandomForce());
 			goldKokosnootCounter=0;
 		}
 		if(goldMelonCounter >= 5)
 		{
-			CreateGoldenMelon(CreateRandomVector());
+			SpawnLocation sp = (SpawnLocation)Random.Range(0,3);
+			CreateGoldenMelon(CreateRandomVector(),sp,CreateRandomForce());
 			goldMelonCounter=0;
 		}
 	}
@@ -102,36 +107,78 @@ public class FallingObjectCreator : MonoBehaviour {
 		return vector;
 	}
 
-	void CreateKokosnoot(Vector3 position)
+	Vector3 CreateRandomForce()
 	{
+		float randomX = Random.Range(0, maxHorizontalForce);
+		Vector3 vector = new Vector3(randomX,0,0);
+		return vector;
+	}
+
+	void CreateKokosnoot(Vector3 position, SpawnLocation s, Vector3 force)
+	{
+		if (s == SpawnLocation.Left)
+			position = new Vector3 (minXPosition, maxYPosition, 0);
+		else if (s == SpawnLocation.Right) {
+			position = new Vector3 (maxXPosition, maxYPosition, 0);
+			force = -force;
+		} else
+			force = Vector3.zero;
 		GameObject g = CreateFallingObject(KokosnootPrefab, position);
 		kokosnootCounter++;
+		Rigidbody rb = g.GetComponent<Rigidbody> ();
+		rb.AddForce (force);
 		g.name = "Kokosnoot"+kokosnootCounter;
 		g.transform.parent = this.transform;
 		g.transform.Rotate(Random.Range(0,360),90,90);
 	}
-	void CreateGoudenKokosnoot(Vector3 position)
+	void CreateGoudenKokosnoot(Vector3 position, SpawnLocation s, Vector3 force)
 	{
+		if (s == SpawnLocation.Left)
+			position = new Vector3 (minXPosition, maxYPosition, 0);
+		else if (s == SpawnLocation.Right) {
+			position = new Vector3 (maxXPosition, maxYPosition, 0);
+			force = -force;
+		} else
+			force = Vector3.zero;
 		GameObject g = CreateFallingObject(GoudenKokosnootPrefab, position);
 		kokosnootCounter++;
+		Rigidbody rb = g.GetComponent<Rigidbody> ();
+		rb.AddForce (force);
 		g.name = "GoudenKokosnoot"+kokosnootCounter;
 		g.transform.parent = this.transform;
 		g.transform.Rotate(Random.Range(0,360),90,90);
 	}
 
-	void CreateMelon(Vector3 position)
+	void CreateMelon(Vector3 position, SpawnLocation s, Vector3 force)
 	{
+		if (s == SpawnLocation.Left)
+			position = new Vector3 (minXPosition, maxYPosition, 0);
+		else if (s == SpawnLocation.Right) {
+			position = new Vector3 (maxXPosition, maxYPosition, 0);
+			force = -force;
+		} else
+			force = Vector3.zero;
 		GameObject g = CreateFallingObject(MeloenPrefab, position);
-		kokosnootCounter++;
 		melonCounter++;
+		Rigidbody rb = g.GetComponent<Rigidbody> ();
+		rb.AddForce (force);
 		g.name = "Meloen"+melonCounter;
 		g.transform.parent = this.transform;
 		g.transform.Rotate(Random.Range(0,360),90,90);
 	}
-	void CreateGoldenMelon(Vector3 position)
+	void CreateGoldenMelon(Vector3 position, SpawnLocation s, Vector3 force)
 	{
+		if (s == SpawnLocation.Left)
+			position = new Vector3 (minXPosition, maxYPosition, 0);
+		else if (s == SpawnLocation.Right) {
+			position = new Vector3 (maxXPosition, maxYPosition, 0);
+			force = -force;
+		} else
+			force = Vector3.zero;
 		GameObject g = CreateFallingObject(GoudenMeloenPrefab, position);
-		kokosnootCounter++;
+		melonCounter++;
+		Rigidbody rb = g.GetComponent<Rigidbody> ();
+		rb.AddForce (force);
 		g.name = "GoudenMeloen"+melonCounter;
 		g.transform.parent = this.transform;
 		g.transform.Rotate(Random.Range(0,360),90,90);
